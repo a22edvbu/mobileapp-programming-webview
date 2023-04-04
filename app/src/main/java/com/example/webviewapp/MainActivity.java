@@ -15,9 +15,6 @@ public class MainActivity extends AppCompatActivity {
     WebView webViewMain;
     public void showExternalWebPage(){
         // TODO: Add your code for showing external web page here
-        webViewMain = findViewById(R.id.webViewID);
-        webViewMain.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
-        webViewMain.getSettings().setJavaScriptEnabled(true);
         webViewMain.loadUrl("https://www.games-workshop.com/en-SE/Home");
     }
 
@@ -26,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         webViewMain = findViewById(R.id.webViewID);
         webViewMain.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
         webViewMain.getSettings().setJavaScriptEnabled(true);
-        webViewMain.loadUrl("https://github.com/a22edvbu/mobileapp-programming-webview/commits/master");
+        webViewMain.loadUrl("file:///android_asset/index.html");
     }
 
 
