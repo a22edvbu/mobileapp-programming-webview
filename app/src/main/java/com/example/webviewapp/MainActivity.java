@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         webViewMain = findViewById(R.id.webViewID);
         webViewMain.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
+        webViewMain.getSettings().setJavaScriptEnabled(true);
         webViewMain.loadUrl("https://his.se");
         setSupportActionBar(toolbar);
 
