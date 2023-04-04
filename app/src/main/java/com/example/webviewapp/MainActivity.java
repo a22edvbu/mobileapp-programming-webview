@@ -15,10 +15,18 @@ public class MainActivity extends AppCompatActivity {
     WebView webViewMain;
     public void showExternalWebPage(){
         // TODO: Add your code for showing external web page here
+        webViewMain = findViewById(R.id.webViewID);
+        webViewMain.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
+        webViewMain.getSettings().setJavaScriptEnabled(true);
+        webViewMain.loadUrl("https://www.games-workshop.com/en-SE/Home");
     }
 
     public void showInternalWebPage(){
         // TODO: Add your code for showing internal web page here
+        webViewMain = findViewById(R.id.webViewID);
+        webViewMain.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
+        webViewMain.getSettings().setJavaScriptEnabled(true);
+        webViewMain.loadUrl("https://github.com/a22edvbu/mobileapp-programming-webview/commits/master");
     }
 
 
@@ -76,11 +84,13 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_external_web) {
             Log.d("==>","Will display external web page");
+            showExternalWebPage();
             return true;
         }
 
         if (id == R.id.action_internal_web) {
             Log.d("==>","Will display internal web page");
+            showInternalWebPage();
             return true;
         }
 
