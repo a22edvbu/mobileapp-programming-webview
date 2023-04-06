@@ -35,6 +35,30 @@ Bilder läggs i samma mapp som markdown-filen.
 
 ![](android.png)
 
+
+------------------------------------------------------------------------------------------------
+
+Först av allt forkade jag projektet från GitHub och klonade den forken till min dator så jag kan öppna den i Android Studio. Efter det ändrade jag också namn på filen till 
+"Assignment 2 Webview" i strings.xml och AndroidManifest.xml, där jag även gav appen tillgång till internet genom user.permissions i AndroidManifest.xml.
+```xml
+...
+<uses-permission android:name="android.permission.INTERNET"/>
+...
+```
+Nu när appen har tillgång till internet ändrade jag <Textview> till <Webview> för att göra det möjligt att visa en hemsida i appen. Jag angav även ett "webViewID" som ID så att jag kan kalla
+på <Webview> i nästa steg.
+```xml
+<WebView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/app_name"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+    android:id="@+id/webViewID" />
+```
+
 Läs gärna:
 
 - Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
