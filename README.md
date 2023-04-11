@@ -40,6 +40,7 @@ Bilder läggs i samma mapp som markdown-filen.
 
 Först av allt forkade jag projektet från GitHub och klonade den forken till min dator så jag kan öppna den i Android Studio. Efter det ändrade jag också namn på filen till 
 "Assignment 2 Webview" i strings.xml och AndroidManifest.xml, där jag även gav appen tillgång till internet genom user.permissions i AndroidManifest.xml.
+![img.png](img.png)
 ```xml
 ...
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -57,6 +58,44 @@ på <Webview> i nästa steg.
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
     android:id="@+id/webViewID" />
+```
+
+Sedan importerade jag datan från "webViewID" till variabeln "webViewMain" i "MainActivity.java" där jag även deklarerar en client där webviewen ska visas.
+Efter det satte jag på att man kan använda javascript och sedan lade in URL-en för appens startsida till högskolans hemsida.  
+
+![img_1.png](img_1.png)
+
+```java
+    protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Toolbar toolbar = findViewById(R.id.toolbar);
+    webViewMain = findViewById(R.id.webViewID);
+    webViewMain.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
+    webViewMain.getSettings().setJavaScriptEnabled(true);
+    webViewMain.loadUrl("https://his.se");
+    setSupportActionBar(toolbar)
+```
+
+Som internal web page använda jag mig av index.html som lagras i appen. Som external web page valde jag en hemsida för
+spelföretaget Games Workshop för att göra en tydlig skillnad mellan startsidan och external web page.
+
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+
+```java
+    public void showExternalWebPage(){
+        // TODO: Add your code for showing external web page here
+        webViewMain.loadUrl("https://www.games-workshop.com/en-SE/Home");
+    }
+
+    public void showInternalWebPage(){
+        // TODO: Add your code for showing internal web page here
+        webViewMain = findViewById(R.id.webViewID);
+        webViewMain.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
+        webViewMain.getSettings().setJavaScriptEnabled(true);
+        webViewMain.loadUrl("file:///android_asset/index.html");
+    }
 ```
 
 Läs gärna:
